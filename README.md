@@ -4,7 +4,7 @@ AsterixDB supports user drop their own adapters to ingest from the datasources
 using the feed mechanism. This is a template which shows how to write your 
 own adapters for AsterixDB.
 
-###How to use
+### How to use
 * Download a AsterixDB instance from [here](asterixdb.apache.org).
 * Clone this repo and execute the `pack.sh`.
 * Drop the compiled jar file into `asterix-server-0.9.1-SNAPSHOT-binary-assembly/repo/` (Depending on
