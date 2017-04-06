@@ -19,6 +19,9 @@
 
 package org.asterix.external.parser;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.asterix.external.api.IRecordDataParser;
@@ -29,7 +32,7 @@ import org.apache.hyracks.api.exceptions.HyracksDataException;
 
 public class CAPMessageParserFactory implements IRecordDataParserFactory<char[]> {
 
-    private static String[] formats = { "cap" };
+    public static final List<String> parserFormats = Collections.unmodifiableList(Arrays.asList("cap"));
 
     private ARecordType recordType;
 
@@ -59,7 +62,7 @@ public class CAPMessageParserFactory implements IRecordDataParserFactory<char[]>
     }
 
     @Override
-    public String[] getFormats() {
-        return formats;
+    public List<String> getParserFormats() {
+        return parserFormats;
     }
 }
