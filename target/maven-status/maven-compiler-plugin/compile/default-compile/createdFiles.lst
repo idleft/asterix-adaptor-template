@@ -1,0 +1,9 @@
+org/asterix/external/parser/CAPMessageParser$CAPMessageHandler.class
+org/asterix/external/parser/CAPMessageParser.class
+org/asterix/external/reader/CAPMessageRecordReader$CAPParserState.class
+org/asterix/external/parser/CAPMessageParserFactory.class
+org/asterix/external/parser/CAPMessageParser$1.class
+org/asterix/external/reader/CAPMessageRecordReader$1.class
+org/asterix/external/reader/CAPMessageRecordReader.class
+org/asterix/external/parser/CAPMessageParser$ComplexBuilder.class
+org/asterix/external/parser/CAPMessageParser$ListElementHandler.class
