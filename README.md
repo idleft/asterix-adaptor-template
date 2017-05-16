@@ -1,6 +1,6 @@
 # User Defined Adapter Tempalte for AsterixDB
 
-AsterixDB supports user drop their own adapters to ingest from the datasources 
+AsterixDB supports user to drop their own adapters to ingest from the datasources 
 using the feed mechanism. This is a template which shows how to write your 
 own adapters for AsterixDB.
 
@@ -48,4 +48,4 @@ in `org.apache.asterix.external.input.record.reader.stream.StreamRecordReader`. 
 interface, add your implementation in `org.apache.asterix.external.api.IRecordReaderFactory`. You may find more examples in the 
 AsterixDB code base.
 * When constructing your own adapter and parser, make sure the `recordReaderFormats` and `parserFormats` are consistent and both
-of the are public. 
+of them are public. 
