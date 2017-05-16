@@ -28,6 +28,7 @@ import java.util.Map;
 import org.apache.asterix.external.api.AsterixInputStream;
 import org.apache.asterix.external.input.record.reader.stream.StreamRecordReader;
 import org.apache.asterix.external.util.ExternalDataConstants;
+import org.apache.hyracks.api.exceptions.HyracksDataException;
 
 public class CAPMessageRecordReader extends StreamRecordReader {
 
@@ -35,7 +36,9 @@ public class CAPMessageRecordReader extends StreamRecordReader {
     private int recordLvl;
     private boolean recordContentFlag;
 
-    public static final List<String> recordReaderFormats = Collections.unmodifiableList(Arrays.asList("cap"));
+    private static final List<String> recordReaderFormats = Collections.unmodifiableList(Arrays.asList("cap"));
+    private static final String REQUIRED_CONFIGS = "";
+    private final Map<String, String> config;
 
     private enum CAPParserState {
         INIT_STATE,
@@ -50,16 +53,7 @@ public class CAPMessageRecordReader extends StreamRecordReader {
 
     public CAPMessageRecordReader(AsterixInputStream inputStream, Map<String, String> config) {
         super(inputStream);
-        String collection = config.get("collection");
-        bufferPosn = 0;
-        curLvl = 0;
-        recordContentFlag = false;
-
-        if (collection != null) {
-            this.recordLvl = Boolean.parseBoolean(collection) ? 1 : 0;
-        } else {
-            this.recordLvl = 0;
-        }
+        this.config = config;
     }
 
     @Override
@@ -159,5 +153,24 @@ public class CAPMessageRecordReader extends StreamRecordReader {
     @Override
     public List<String> getRecordReaderFormats() {
         return recordReaderFormats;
+    }
+
+    @Override
+    public String getRequiredConfigs() {
+        return REQUIRED_CONFIGS;
+    }
+
+    @Override
+    public void configure() throws HyracksDataException {
+        String collection = config.get("collection");
+        bufferPosn = 0;
+        curLvl = 0;
+        recordContentFlag = false;
+
+        if (collection != null) {
+            this.recordLvl = Boolean.parseBoolean(collection) ? 1 : 0;
+        } else {
+            this.recordLvl = 0;
+        }
     }
 }

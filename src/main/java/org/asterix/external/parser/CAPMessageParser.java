@@ -222,11 +222,11 @@ public class CAPMessageParser extends AbstractDataParser implements IRecordDataP
                         aString.setValue(content);
                         stringSerde.serialize(aString, out);
                         break;
-                    case INT64:
+                    case BIGINT:
                         aInt64.setValue(Long.valueOf(content));
                         int64Serde.serialize(aInt64, out);
                         break;
-                    case INT32:
+                    case INTEGER:
                         aInt32.setValue(Integer.valueOf(content));
                         int32Serde.serialize(aInt32, out);
                         break;
@@ -417,11 +417,11 @@ public class CAPMessageParser extends AbstractDataParser implements IRecordDataP
         }
 
         private IARecordBuilder getRecordBuilder() {
-            return recordBuilderPool.allocate(ATypeTag.RECORD);
+            return recordBuilderPool.allocate(ATypeTag.OBJECT);
         }
 
         private IAsterixListBuilder getOrderedListBuilder() {
-            return listBuilderPool.allocate(ATypeTag.ORDEREDLIST);
+            return listBuilderPool.allocate(ATypeTag.ARRAY);
         }
 
         private ArrayBackedValueStorage getTempBuffer() {

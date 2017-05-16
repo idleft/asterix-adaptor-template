@@ -32,7 +32,7 @@ import org.apache.hyracks.api.exceptions.HyracksDataException;
 
 public class CAPMessageParserFactory implements IRecordDataParserFactory<char[]> {
 
-    public static final List<String> parserFormats = Collections.unmodifiableList(Arrays.asList("cap"));
+    private static final List<String> parserFormats = Collections.unmodifiableList(Arrays.asList("cap"));
 
     private ARecordType recordType;
 
