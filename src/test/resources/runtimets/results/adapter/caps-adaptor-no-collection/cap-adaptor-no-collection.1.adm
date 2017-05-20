@@ -1,0 +1,1 @@
+{ "identifier": "TrickyTestCase001", "references": "This test case doesn't comply to CAP schema", "info": { "list1": [ 111, 222 ], "list2": [ { "valueName": "EventID", "value": 13970876 }, { "valueName": "Version", "value": 1 } ], "list3": [ { "valueName": "EventID", "value": [ 1, 2 ] }, { "valueName": "Version", "value": [ 3, 4, 5 ] } ], "category": "Geo" } }
