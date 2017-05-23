@@ -5,13 +5,15 @@ using the feed mechanism. This is a template which shows how to write your
 own adapters for AsterixDB.
 
 ### How to use
-* Download a AsterixDB instance from [here](asterixdb.apache.org).
-* Clone this repo and execute the `pack.sh`.
-* Drop the compiled jar file into `asterix-server-0.9.1-SNAPSHOT-binary-assembly/repo/` (Depending on
+* Checkout the latest AsterixDB repo, and build it locally to populate the necessary maven dependencies 
+for this project. (If you just want to use the existed adapter, you may download the latest binary snapshot.
+* Checkout this repo and execute the `pack.sh`.
+* Drop the compiled jar file into `asterix-server-0.9.x-SNAPSHOT-binary-assembly/repo/` (Depending on
 your AsterixDB version, the version number may vary).
 * (If you are using the managix installer, you need to repack the server package and replace the old 
 one; If you are using NCServices, simply dropping the jar to the specified directory is enough).
 * Here is a sample AQL that creates a feed with CAP adapter:
+* AdapterExecuteTest under the test package provides end-to-end testing environment for your customized adapter.
 ```
 drop dataverse document_feeds if exists;
 create dataverse document_feeds;
