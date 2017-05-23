@@ -38,7 +38,6 @@ public class CAPMessageRecordReader extends StreamRecordReader {
 
     private static final List<String> recordReaderFormats = Collections.unmodifiableList(Arrays.asList("cap"));
     private static final String REQUIRED_CONFIGS = "";
-    private final Map<String, String> config;
 
     private enum CAPParserState {
         INIT_STATE,
@@ -49,11 +48,6 @@ public class CAPMessageRecordReader extends StreamRecordReader {
         IN_END_OF_ELEMENT_NAME,
         IN_PROLOG,
         IN_SCHEMA_DEFINITION
-    }
-
-    public CAPMessageRecordReader(AsterixInputStream inputStream, Map<String, String> config) {
-        super(inputStream);
-        this.config = config;
     }
 
     @Override
@@ -161,7 +155,8 @@ public class CAPMessageRecordReader extends StreamRecordReader {
     }
 
     @Override
-    public void configure() throws HyracksDataException {
+    public void configure(AsterixInputStream inputStream, Map<String, String> config) throws HyracksDataException {
+        super.configure(inputStream);
         String collection = config.get("collection");
         bufferPosn = 0;
         curLvl = 0;
